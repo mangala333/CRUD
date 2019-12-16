@@ -1,0 +1,33 @@
+<h6 class="pb-2 mb-0">Employees</h6>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Age</th>
+        <th colspan="2">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employees">
+        <!-- <td>
+        <span *ngIf="employee.new" class="badge badge-primary">new</span>
+        {{employee.employee_name}}
+        </td> -->
+        <td>{{employee.employee_name}}</td>
+        <td>{{employee.employee_salary}}</td>
+        <td>{{employee.employee_age}}</td>
+        <!-- <td><a [routerLink]="['/employee/edit/', employee.id]" class="btn btn-primary">Edit</a></td> -->
+        <td><a (click)="btnClick(employee)" class="btn btn-primary mr-2">Edit</a></td>
+        <td><a (click)="deleteEmp(employee.id)" class="btn btn-danger">Delete</a></td>
+        <!-- <td>
+        <button (click)="update(employee_id)" class="btn btn-danger btn-sm">
+            <span class="oi oi-trash"></span>
+        </button>
+        </td> -->
+    </tr>
+    <tr *ngIf="loading">
+        <td colspan="5" align="center">Fetching Employees</td>
+    </tr>
+    </tbody>
+</table>
