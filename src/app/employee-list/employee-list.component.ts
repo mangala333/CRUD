@@ -4,7 +4,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
-
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
@@ -14,12 +13,13 @@ export class EmployeeListComponent implements OnInit {
   employees;
   name; salary;
   age;
+
   constructor(private route: ActivatedRoute, private router: Router, private es: EmployeesService) { }
 
   ngOnInit() {
     this.es.getEmployee().subscribe(employees => {
       console.log('employees list - ' + JSON.stringify(employees));
-      this.employees = employees;
+      this.employees = employees.sort((a,b)=> b.id-a.id);
     });
   }
 
@@ -62,13 +62,6 @@ export class EmployeeListComponent implements OnInit {
         this.employees = employees;
         alert(res['success'].text);
       });
-    });
-  }
-
-  getEmployee(){
-    this.es.getEmployee().subscribe(employees => {
-      console.log('employees list - ' + JSON.stringify(employees));
-      this.employees = employees;
     });
   }
 

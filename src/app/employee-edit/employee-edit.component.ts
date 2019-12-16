@@ -11,7 +11,7 @@ import { EmployeesService } from '../employees.service';
 export class EmployeeEditComponent implements OnInit {
   customerData: any;
   angForm: FormGroup;
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private es: EmployeesService) {
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private es: EmployeesService) {
     this.createForm();
   }
 
@@ -39,9 +39,9 @@ export class EmployeeEditComponent implements OnInit {
       "salary": EmployeeSalary,
       "age": EmployeeAge
     };
-    console.log('Emp data - '+ JSON.stringify(employeeData));
     this.es.updateEmployee(employeeData, EmployeeId).subscribe(resp => {
       alert('Updated Successfully');
+      this.router.navigate([`${'employee/get'}`]);
     });
   }
 

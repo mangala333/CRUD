@@ -22,8 +22,7 @@ export class EmployeesService {
       "age":EmployeeAge
     };
     console.log(obj);
-    return this.http.post(`${this.uri}/api/v1/create`, obj)
-        .subscribe(res => console.log('Done'));
+    return this.http.post(`${this.uri}/api/v1/create`, obj);
   }
 
   getEmployee() {

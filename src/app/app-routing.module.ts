@@ -15,14 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'employee/edit/:id',
-    component: EmployeeEditComponent,
-    // children: [
-    //   {
-    //       path: 'employee/get',
-    //       component: EmployeeListComponent,
-    //       outlet: 'getEmployee'
-    //   }
-    // ]
+    component: EmployeeEditComponent
   }
 ];
 
