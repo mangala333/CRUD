@@ -6,29 +6,35 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AuthGuardService } from './guards/auth-guard.service';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { EmployeesService } from './employees.service';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
+import { LoginComponent } from './login/login.component';
+
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { httpSetHeaders } from './httpSetHeaders.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeCreateComponent,
     EmployeeListComponent,
-    EmployeeEditComponent
+    EmployeeEditComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule
   ],
-  providers: [ EmployeesService ],
+  providers: [ EmployeesService, AuthGuardService, { provide: HTTP_INTERCEPTORS, useClass: httpSetHeaders, multi: true } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,7 +5,31 @@
         </mat-progress-spinner>
      
     </div> -->
-<div class="card">
+    <div class="wrapper">
+            <div class="overlay" *ngIf="loading">
+              <div class="spinner-wrapper">
+                    <div class="container">
+                            <div class="row">
+                              <div id="loader">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="loading"></div>
+                              </div>
+                          
+                              <p class="spinner-message" *ngIf="message && message !== ''">
+                                {{message}}
+                              </p>
+                            </div>
+                          </div>
+              </div>
+            </div>
+<div class="card" [class.blurred]="loading">
     <div class="card-body">
       <form [formGroup]="angForm" novalidate>
         <div class="form-group">
