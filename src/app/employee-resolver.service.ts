@@ -7,17 +7,17 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
-    })
-    export class EmployeeResolverService implements Resolve<any> {
-      uri = 'https://dummy.restapiexample.com';
-      constructor(private employeeApi: EmployeesService, private http: HttpClient) { }
-      resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        // return this.employeeApi.getEmployee().pipe(
-        //   catchError((error) => {
-        //     return empty();
-        //   })
-        // );
-        console.log('Came here' + JSON.stringify(this.http.get(`${this.uri}/api/v1/employees`)))
-        return this.http.get(`${this.uri}/api/v1/employees`);
-      }
+})
+
+export class EmployeeResolverService implements Resolve<any> {
+    uri = 'https://dummy.restapiexample.com';
+    constructor(private employeeApi: EmployeesService, private http: HttpClient) { }
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    // return this.employeeApi.getEmployee().pipe(
+    //   catchError((error) => {
+    //     return empty();
+    //   })
+    // );
+    return this.http.get(`${this.uri}/api/v1/employees`);
     }
+}

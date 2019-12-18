@@ -8,13 +8,9 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'angular8';
-  constructor(private _authService: AuthService) { }
-
-  ngOnInit() {
-  }
-  
+  constructor(private authService: AuthService) { }
 
   logout() {
-    this._authService.logout();
+    this.authService.logout();
   }
 }

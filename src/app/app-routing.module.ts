@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'employee/create',
     loadChildren: './employee-create/employee-create.module#EmployeeCreateModule'
-    //canActivate: [AuthGuardService]
+    // canActivate: [AuthGuardService]
   },
   {
     path: 'employee/get',
