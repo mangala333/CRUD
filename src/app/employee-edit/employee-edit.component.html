@@ -79,7 +79,6 @@
                 #EmployeeAge [(ngModel)] = "customerData.employee_age" 
               />
             </div>
-            employee_age -- {{this.customerData.employee_name}}
             <div *ngIf="angForm.controls['EmployeeAge'].invalid && (angForm.controls['EmployeeAge'].dirty || angForm.controls['EmployeeAge'].touched)" class="alert alert-danger">
               <div *ngIf="angForm.controls['EmployeeAge'].errors.required">
                 Employee Age is required.

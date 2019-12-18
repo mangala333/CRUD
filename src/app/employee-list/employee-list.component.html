@@ -13,10 +13,8 @@
                 {{rowData[col.field]}}
             </td>
             <td>
-                <button pButton class="mr-2" icon="pi pi-pencil" (click)="selectCarWithButton(rowData)"></button>
-                <button pButton icon="pi pi-trash" (click)="selectCarWithButton(rowData)"></button>
-                <p-button label="Click"></p-button>
-<p-button icon="pi pi-check" label="Click"></p-button>
+                <button pButton class="mr-2" icon="pi pi-pencil" (click)="btnClick(rowData)"></button>
+                <button pButton icon="pi pi-trash" (click)="deleteEmp(rowData.id)"></button>
             </td>
         </tr>
     </ng-template>

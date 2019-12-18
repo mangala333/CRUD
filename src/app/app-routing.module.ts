@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'employee/create',
-    component: EmployeeCreateComponent,
-    canActivate: [AuthGuardService]
+    loadChildren: './employee-create/employee-create.module#EmployeeCreateModule'
+    //canActivate: [AuthGuardService]
   },
   {
     path: 'employee/get',
@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'employee/edit/:id',
-    component: EmployeeEditComponent
+    loadChildren: './employee-edit/employee-edit.module#EmployeeEditModule'
   }
 ];
 
