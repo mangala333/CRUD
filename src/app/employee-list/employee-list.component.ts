@@ -13,6 +13,7 @@ export class EmployeeListComponent implements OnInit {
   employees;
   name; salary;
   age;
+  cols: any[];
 
   constructor(private route: ActivatedRoute, private router: Router, private es: EmployeesService) { }
 
@@ -21,6 +22,12 @@ export class EmployeeListComponent implements OnInit {
       console.log('employees list - ' + JSON.stringify(employees));
       this.employees = employees.sort((a,b)=> b.id-a.id);
     });
+
+    this.cols = [
+      { field: 'employee_name', header: 'Name' },
+      { field: 'employee_salary', header: 'Salary' },
+      { field: 'employee_age', header: 'Age' }
+    ];
   }
 
   btnClick(rowVal) {

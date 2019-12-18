@@ -13,6 +13,8 @@ import { EmployeesService } from './employees.service';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import { LoginComponent } from './login/login.component';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
 
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { httpSetHeaders } from './httpSetHeaders.interceptor';
@@ -32,7 +34,9 @@ import { httpSetHeaders } from './httpSetHeaders.interceptor';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    ButtonModule,
+    TableModule
   ],
   providers: [ EmployeesService, AuthGuardService, { provide: HTTP_INTERCEPTORS, useClass: httpSetHeaders, multi: true } ],
   bootstrap: [AppComponent]
