@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'employee/get',
-    component: EmployeeListComponent
+    loadChildren: './employee-list/employee-list.module#EmployeeListModule'
   },
   {
     path: 'employee/edit/:id',

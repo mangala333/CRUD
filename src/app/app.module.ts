@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuardService } from './guards/auth-guard.service';
 //import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { EmployeesService } from './employees.service';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
+//import { EmployeeListComponent } from './employee-list/employee-list.component';
 //import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import { LoginComponent } from './login/login.component';
 import { ButtonModule } from 'primeng/button';
@@ -22,7 +22,7 @@ import { httpSetHeaders } from './httpSetHeaders.interceptor';
   declarations: [
     AppComponent,
     //EmployeeCreateComponent,
-    EmployeeListComponent,
+    //EmployeeListComponent,
     //EmployeeEditComponent,
     LoginComponent
   ],

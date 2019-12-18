@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';import { HttpHeaders } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { Resolve } from '@angular/router';
+import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 import { HttpClient } from '@angular/common/http';
 const httpOptions = {
@@ -25,9 +28,25 @@ export class EmployeesService {
     return this.http.post(`${this.uri}/api/v1/create`, obj);
   }
 
-  getEmployee() {
-    return this.http.get(`${this.uri}/api/v1/employees`).pipe(map((res: any) => res));
-  }
+  // resolve(): Observable<any> {
+  //   let newsUrl = 'https://httpbin.org/post';
+  //   let news = 'The sky is blue'; //Mock data to be returned by test API
+  //   const obj = {
+  //     "name":EmployeeName,
+  //     "salary":EmployeeSalary,
+  //     "age":EmployeeAge
+  //   };
+  //   console.log(obj);
+  //   return this.http.post(`${this.uri}/api/v1/create`, obj).pipe(
+  //     map( (dataFromApi) => dataFromApi ),
+  //     catchError( (err) => Observable.throw(err.json().error) )
+  //   )
+  // }
+
+  // getEmployee() {
+  //   return this.http.get(`${this.uri}/api/v1/employees`);
+  //   //return this.http.get(`${this.uri}/api/v1/employees`).pipe(map((res: any) => res));
+  // }
 
   updateEmployee(employee, id) {
     return this.http.put(`${this.uri}/api/v1/update/${id}`, employee);
